@@ -38,11 +38,11 @@ The tools I build — data collection, content extraction, semantic search, fact
 
 ### Full-stack Services
 
-Backend APIs with Spring Boot and FastAPI, web dashboards with Next.js, Android apps with Jetpack Compose, and cross-platform mobile with React Native.
+6 years of delivering BI/DW solutions to government and enterprise clients — DW/DM schema design, OLAP query tuning, report automation, and cross-DB migrations (Oracle → Netezza, multi-vendor standardization). Most of this work happens on **air-gapped networks** where cloud APIs don't exist.
 
-I design from the database schema up — performance-tuned queries across PostgreSQL, Oracle, MariaDB, MSSQL, DB2, and Netezza. When the bottleneck is the query, I fix the query. When the bottleneck is the schema, I fix the schema.
+Recently, I've been bridging this into AI territory: building an LLM chatbot that turns natural language into BI dashboards (5-step UI → 1 sentence), a video analytics platform with PGVector semantic search, and a local autonomous AI agent with SSE streaming, RAG (Qdrant + Neo4j), and a custom ReAct pipeline — all designed to run without external API dependencies.
 
-`FastAPI` `Spring Boot` `Next.js` `React Native` `Kotlin` `JPA`
+`FastAPI` `Spring Boot` `Next.js` `Kotlin` `JPA` `React Native`
 
 </td>
 </tr>
