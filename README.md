@@ -25,9 +25,11 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 
 ### Data & AI Pipelines
 
-I focus on making LLM pipelines work **in both online and air-gapped environments** — same code, same quality, no cloud dependency. Having delivered CUBE (BI/OLAP), DW/DM builds, and custom analytics to government and public sector clients on closed networks, I know what "no internet" really means for AI deployment.
+I focus on making LLM pipelines work **in both online and air-gapped environments** — same code, same quality, no cloud dependency. Having delivered BI/OLAP, DW/DM builds, and custom analytics to government and public sector clients on closed networks, I know what "no internet" really means for AI deployment.
 
-The tools I build — data collection, content extraction, semantic search, fact-checking — are designed to produce **local test datasets** from legally collected public sources (RSS, public APIs). This lets teams validate LLM pipelines on realistic data before deploying to restricted environments.
+On top of the pipeline layer, I build **RAG systems** (vector search + graph memory) and **persistent memory layers** that give LLM agents long-term context — so they can recall prior conversations, reference collected knowledge, and reason across sessions without re-processing everything from scratch.
+
+The tools I build — data collection, content extraction, semantic search, fact-checking — are designed to produce **local test datasets** from legally collected public sources (RSS, public APIs). This lets teams validate LLM + RAG pipelines on realistic data before deploying to restricted environments.
 
 `Python` `vLLM` `PostgreSQL` `Qdrant` `Neo4j` `Redis`
 
