@@ -11,8 +11,8 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 ## Currently Working On
 
 - **Mirror Agent** — local autonomous AI agent with custom ReAct pipeline, RAG (Qdrant + Neo4j), persistent memory, and 2-tier LLM fallback. No framework, no cloud. Runs entirely on-premise.
-  - **Forge** — multi-source data refinement pipeline feeding Mirror Agent. Batch summarization, fact-checking (83.6% effective accuracy), 800K+ articles across 115 domains.
-  - **QubicAI** — Text2SQL engine for automated DM generation. Natural language → SQL across enterprise data warehouses.
+  - **Forge** — the first gate for turning raw data into LLM-ready data warehouses. Any domain, any source — news, blogs, enterprise back-data, legacy DB migrations. Refines, validates (fact-checking at 83.6% accuracy), and structures into DW.
+  - **QubicAI** — once the DW is built, QubicAI semi-automatically generates data marts that LLMs can query. Natural language → SQL across structured warehouses.
 - **QuartzUnit** — personal data asset platform. Consumption/production knowledge archiving + AI labeling + mobile app. Building toward a personal data marketplace.
 - **QuartzUnit OSS** — 10 Python packages on PyPI extracted from the above projects. The composable tool layer that makes Mirror Agent and Forge work.
 
