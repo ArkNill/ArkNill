@@ -1,10 +1,19 @@
 ## About
 
-Backend engineer with 6+ years building data-intensive systems.
+Backend engineer with 6+ years building data-intensive systems — from SQL tuning across **6 database engines** to deploying local LLM inference pipelines on bare metal.
 
-SQL-native tuning across **6 DB engines** · Full-stack from backend to mobile · Building **AI-powered data pipelines** end-to-end.
+I believe the next wave of useful software won't come from training bigger models, but from **building better plumbing around them** — reliable extraction, structured search, safety guardrails, and pipelines that run without cloud API keys.
 
-Currently building [QuartzUnit](https://github.com/QuartzUnit) — composable Python tools for LLM agents and data pipelines.
+Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Python tools that let AI agents collect, extract, search, and monitor data — entirely locally.
+
+---
+
+## Currently Working On
+
+- **QuartzUnit ecosystem** — 10 Python packages on PyPI, each solving one step in the LLM data pipeline
+- **Fact-checking pipeline** — automated claim extraction → evidence collection → verdict generation (production at 83.6% effective accuracy)
+- **Large-scale web collection** — 800K+ quality articles across 115 domains, legal RSS-only approach
+- **Local LLM optimization** — bringing 35B parameter models to sub-4-second response times on consumer hardware
 
 ---
 
@@ -15,17 +24,23 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit) — composable Py
 <td width="50%" valign="top">
 
 ### Data & AI Pipelines
-Multi-source data ingestion, LLM-powered extraction, fact-checking with web evidence, and RAG indexing across vector + graph databases.
 
-`Python` `vLLM` `PostgreSQL` `Qdrant` `Neo4j`
+I've built multi-source data ingestion systems that collect from RSS feeds, web scraping, and APIs — then refine raw data through LLM-powered extraction, fact-checking with tiered web evidence (trusted sources → search engines → fallback), and RAG indexing across vector + graph databases.
+
+The pipeline processes thousands of articles daily, extracts structured claims, finds supporting/refuting evidence, and generates reliability verdicts — all running on local LLMs without cloud API costs.
+
+`Python` `vLLM` `PostgreSQL` `Qdrant` `Neo4j` `Redis`
 
 </td>
 <td width="50%" valign="top">
 
 ### Full-stack Services
-Backend APIs, web dashboards, and mobile apps — from database schema design to production deployment.
 
-`FastAPI` `Spring Boot` `Next.js` `React Native` `Kotlin`
+Backend APIs with Spring Boot and FastAPI, web dashboards with Next.js, Android apps with Jetpack Compose, and cross-platform mobile with React Native.
+
+I design from the database schema up — performance-tuned queries across PostgreSQL, Oracle, MariaDB, MSSQL, DB2, and Netezza. When the bottleneck is the query, I fix the query. When the bottleneck is the schema, I fix the schema.
+
+`FastAPI` `Spring Boot` `Next.js` `React Native` `Kotlin` `JPA`
 
 </td>
 </tr>
@@ -35,7 +50,9 @@ Backend APIs, web dashboards, and mobile apps — from database schema design to
 
 ## QuartzUnit — LLM-native Tool Ecosystem
 
-10 Python packages on PyPI. Every tool ships with CLI, async API, and MCP server — no cloud dependency.
+Most AI agent frameworks give you an orchestrator but expect you to figure out the I/O yourself. QuartzUnit is the I/O layer — **10 focused tools** that each solve one problem well, designed to be chained together.
+
+Every tool ships with three interfaces: CLI for scripting, async Python API for integration, and MCP server for AI agent consumption. Zero cloud dependency — everything runs on your machine.
 
 ```
 Collect          Extract          Search           Monitor          Guard
@@ -48,6 +65,14 @@ feedkit    ───→  markgrab   ───→  embgrep    ───→  diffg
                                   (browser         (screenshot)
                                    agent)
 ```
+
+### Why I built this
+
+I needed these tools for my own data pipelines — collecting news from 444 RSS feeds, extracting article content for fact-checking, searching across collected documents by meaning, and monitoring pages for changes. Every tool started as a module in a private project, then got extracted into a standalone package when it became useful on its own.
+
+The guard libraries (loop detection, degeneration detection, action policies) came from running autonomous agents that would occasionally get stuck in loops, produce garbage output, or try to access things they shouldn't. Rather than adding ad-hoc checks, I built proper detectors that any agent framework can use.
+
+### Packages
 
 | Package | What it does | PyPI | Tests |
 |---------|-------------|------|------:|
@@ -62,14 +87,30 @@ feedkit    ───→  markgrab   ───→  embgrep    ───→  diffg
 | [agent-loop-guard](https://github.com/QuartzUnit/agent-loop-guard) | Agent infinite loop detection | [![PyPI](https://img.shields.io/pypi/v/agent-loop-guard?style=flat-square)](https://pypi.org/project/agent-loop-guard/) | 78 |
 | [agent-action-policy](https://github.com/QuartzUnit/agent-action-policy) | Declarative action policies for AI agents | [![PyPI](https://img.shields.io/pypi/v/agent-action-policy?style=flat-square)](https://pypi.org/project/agent-action-policy/) | 69 |
 
-**959 tests** across 10 packages
+**959 tests** across 10 packages · All MIT licensed · Korean + English documentation
 
 ### Built with these tools
 
-| Project | Pipeline |
-|---------|----------|
-| [newswatch](https://github.com/QuartzUnit/newswatch) | feedkit → markgrab → embgrep → diffgrab — news collection + semantic search |
-| [watchdeck](https://github.com/QuartzUnit/watchdeck) | diffgrab → markgrab → snapgrab → guard trio — web monitoring + safety guards |
+These projects use QuartzUnit packages as dependencies — real pipelines, not demos:
+
+| Project | Pipeline | What it does |
+|---------|----------|-------------|
+| [newswatch](https://github.com/QuartzUnit/newswatch) | feedkit → markgrab → embgrep → diffgrab | Collect RSS feeds, extract articles, build semantic search index, track changes |
+| [watchdeck](https://github.com/QuartzUnit/watchdeck) | diffgrab → markgrab → snapgrab → guard trio | Monitor web pages for changes with visual diffs and safety guards |
+
+---
+
+## By the Numbers
+
+| | |
+|---|---|
+| **6** | Database engines tuned in production (PostgreSQL, Oracle, MariaDB, MSSQL, DB2, Netezza) |
+| **10** | Open-source Python packages on PyPI |
+| **959** | Tests across the QuartzUnit ecosystem |
+| **444** | Curated, verified RSS feeds in the feedkit catalog |
+| **800K+** | Quality articles collected across 115 domains |
+| **83.6%** | Fact-checking pipeline effective accuracy (production) |
+| **35B→4s** | LLM response time optimization on consumer GPU |
 
 ---
 
