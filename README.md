@@ -94,9 +94,9 @@ The guard libraries (loop detection, degeneration detection, action policies) ca
 
 **959 tests** across 10 packages · All MIT licensed · Korean + English documentation
 
-### Built with these tools
+### Showcase
 
-These projects use QuartzUnit packages as dependencies — real pipelines, not demos:
+End-to-end examples showing how QuartzUnit packages chain together:
 
 | Project | Pipeline | What it does |
 |---------|----------|-------------|
