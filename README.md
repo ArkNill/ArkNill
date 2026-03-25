@@ -1,6 +1,6 @@
 ## About
 
-Backend engineer with 6+ years building data-intensive systems — from SQL tuning across **6 database engines** to deploying local LLM inference pipelines on bare metal.
+Backend engineer with 6+ years building data-intensive systems — SQL-native tuning across **6 heterogeneous databases** (PostgreSQL, Oracle, MariaDB, MSSQL, DB2, Netezza), full-stack from backend to mobile, and now building AI service pipelines end-to-end.
 
 I believe the next wave of useful software won't come from training bigger models, but from **building better plumbing around them** — reliable extraction, structured search, safety guardrails, and pipelines that run without cloud API keys.
 
@@ -38,7 +38,7 @@ LLM pipelines that work identically **online and offline**. Collection → extra
 
 ### Full-stack & Data Engineering
 
-6 years delivering DW/DM, BI/OLAP, and analytics to government and enterprise clients — often on air-gapped networks. Cross-DB migrations, query tuning across 6 engines, report automation.
+6 years delivering DW/DM, BI/OLAP, and analytics to government and enterprise clients — often on air-gapped networks. Cross-DB migrations, query tuning, report automation.
 
 - LLM chatbot → natural language to BI dashboards (5-step UI → 1 sentence)
 - Video analytics with PGVector semantic search + LLM-powered metadata structuring
