@@ -11,10 +11,10 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 ## Currently Working On
 
 - **Mirror Agent** — local autonomous AI agent with custom ReAct pipeline, RAG (Qdrant + Neo4j), persistent memory, and 2-tier LLM fallback. No framework, no cloud. Runs entirely on-premise.
-  - **Forge** — the first gate for turning raw data into LLM-ready data warehouses. Any domain, any source — news, blogs, enterprise back-data, legacy DB migrations. Refines, validates (fact-checking at 83.6% accuracy), and structures into DW.
-  - **QubicAI** — once the DW is built, QubicAI semi-automatically generates data marts that LLMs can query. Natural language → SQL across structured warehouses.
+- **Forge** — multi-source data refinement into LLM-ready warehouses. Any domain, any source — news, blogs, enterprise back-data, legacy DB migrations. Includes fact-checking at 83.6% production accuracy.
+- **QubicAI** — automated data mart generation + natural language → SQL. Turns Forge warehouses into queryable marts that LLMs can use directly.
 - **QuartzUnit** — personal data asset platform. Consumption/production knowledge archiving + AI labeling + mobile app. Building toward a personal data marketplace.
-- **QuartzUnit OSS** — 10 Python packages on PyPI extracted from the above projects. The composable tool layer that makes Mirror Agent and Forge work.
+- **QuartzUnit OSS** — 10 Python packages on PyPI extracted from the above projects. The composable tool layer that powers the ecosystem.
 
 ---
 
@@ -26,7 +26,7 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 
 ### Data & AI Pipelines
 
-LLM pipelines that work identically **online and offline**. Collection → extraction → RAG → fact-checking, all running on local inference without cloud API calls.
+LLM pipelines that work identically **online and offline** — collection → extraction → RAG → fact-checking, all on local inference.
 
 - Autonomous AI agent with RAG (Qdrant + Neo4j), persistent memory, and custom ReAct pipeline
 - Automated fact-checking: claim extraction → tiered evidence search → verdict generation
@@ -115,7 +115,6 @@ These projects use QuartzUnit packages as dependencies — real pipelines, not d
 | **444** | Curated, verified RSS feeds in the feedkit catalog |
 | **800K+** | Quality articles collected across 115 domains |
 | **83.6%** | Fact-checking pipeline effective accuracy (production) |
-| **Online + Offline** | Pipelines validated in both open and air-gapped environments |
 
 ---
 
