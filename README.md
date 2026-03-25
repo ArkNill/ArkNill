@@ -38,7 +38,7 @@ LLM pipelines that work identically **online and offline**. Collection → extra
 
 ### Full-stack & Data Engineering
 
-6 years delivering DW/DM, BI/OLAP, and analytics to government clients on air-gapped networks. Cross-DB migrations, query tuning across 6 engines, report automation.
+6 years delivering DW/DM, BI/OLAP, and analytics to government and enterprise clients — often on air-gapped networks. Cross-DB migrations, query tuning across 6 engines, report automation.
 
 - LLM chatbot → natural language to BI dashboards (5-step UI → 1 sentence)
 - Video analytics with PGVector semantic search + LLM-powered metadata structuring
