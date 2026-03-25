@@ -13,7 +13,7 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 - **QuartzUnit ecosystem** — 10 Python packages on PyPI, each solving one step in the LLM data pipeline
 - **Fact-checking pipeline** — automated claim extraction → evidence collection → verdict generation (production at 83.6% effective accuracy)
 - **Large-scale web collection** — 800K+ quality articles across 115 domains, legal RSS-only approach
-- **Local LLM optimization** — bringing 35B parameter models to sub-4-second response times on consumer hardware
+- **Air-gapped LLM infrastructure** — building data pipelines and test datasets that work identically in online and offline environments
 
 ---
 
@@ -25,9 +25,9 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 
 ### Data & AI Pipelines
 
-I've built multi-source data ingestion systems that collect from RSS feeds, web scraping, and APIs — then refine raw data through LLM-powered extraction, fact-checking with tiered web evidence (trusted sources → search engines → fallback), and RAG indexing across vector + graph databases.
+I focus on making LLM pipelines work **in both online and air-gapped environments** — same code, same quality, no cloud dependency. Having delivered CUBE (BI/OLAP), DW/DM builds, and custom analytics to government and public sector clients on closed networks, I know what "no internet" really means for AI deployment.
 
-The pipeline processes thousands of articles daily, extracts structured claims, finds supporting/refuting evidence, and generates reliability verdicts — all running on local LLMs without cloud API costs.
+The tools I build — data collection, content extraction, semantic search, fact-checking — are designed to produce **local test datasets** from legally collected public sources (RSS, public APIs). This lets teams validate LLM pipelines on realistic data before deploying to restricted environments.
 
 `Python` `vLLM` `PostgreSQL` `Qdrant` `Neo4j` `Redis`
 
@@ -110,7 +110,7 @@ These projects use QuartzUnit packages as dependencies — real pipelines, not d
 | **444** | Curated, verified RSS feeds in the feedkit catalog |
 | **800K+** | Quality articles collected across 115 domains |
 | **83.6%** | Fact-checking pipeline effective accuracy (production) |
-| **35B→4s** | LLM response time optimization on consumer GPU |
+| **Online + Offline** | Pipelines validated in both open and air-gapped environments |
 
 ---
 
