@@ -25,22 +25,24 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 
 ### Data & AI Pipelines
 
-I focus on making LLM pipelines work **in both online and air-gapped environments** — same code, same quality, no cloud dependency. Having delivered BI/OLAP, DW/DM builds, and custom analytics to government and public sector clients on closed networks, I know what "no internet" really means for AI deployment.
+LLM pipelines that work identically **online and offline**. Collection → extraction → RAG → fact-checking, all running on local inference without cloud API calls.
 
-On top of the pipeline layer, I build **RAG systems** (vector search + graph memory) and **persistent memory layers** that give LLM agents long-term context — so they can recall prior conversations, reference collected knowledge, and reason across sessions without re-processing everything from scratch.
-
-The tools I build — data collection, content extraction, semantic search, fact-checking — are designed to produce **local test datasets** from legally collected public sources (RSS, public APIs). This lets teams validate LLM + RAG pipelines on realistic data before deploying to restricted environments.
+- Autonomous AI agent with RAG (Qdrant + Neo4j), persistent memory, and custom ReAct pipeline
+- Automated fact-checking: claim extraction → tiered evidence search → verdict generation
+- 800K+ articles collected, indexed, and searchable across 115 domains
 
 `Python` `vLLM` `PostgreSQL` `Qdrant` `Neo4j` `Redis`
 
 </td>
 <td width="50%" valign="top">
 
-### Full-stack Services
+### Full-stack & Data Engineering
 
-6 years of delivering BI/DW solutions to government and enterprise clients — DW/DM schema design, OLAP query tuning, report automation, and cross-DB migrations (Oracle → Netezza, multi-vendor standardization). Most of this work happens on **air-gapped networks** where cloud APIs don't exist.
+6 years delivering DW/DM, BI/OLAP, and analytics to government clients on air-gapped networks. Cross-DB migrations, query tuning across 6 engines, report automation.
 
-Recently, I've been bridging this into AI territory: building an LLM chatbot that turns natural language into BI dashboards (5-step UI → 1 sentence), a video analytics platform with PGVector semantic search, and a local autonomous AI agent with SSE streaming, RAG (Qdrant + Neo4j), and a custom ReAct pipeline — all designed to run without external API dependencies.
+- LLM chatbot → natural language to BI dashboards (5-step UI → 1 sentence)
+- Video analytics with PGVector semantic search + LLM-powered metadata structuring
+- Mobile + web: Next.js dashboards, Kotlin/Compose Android, React Native
 
 `FastAPI` `Spring Boot` `Next.js` `Kotlin` `JPA` `React Native`
 
