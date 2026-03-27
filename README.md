@@ -103,6 +103,16 @@ End-to-end examples showing how QuartzUnit packages chain together:
 | [newswatch](https://github.com/QuartzUnit/newswatch) | feedkit → markgrab → embgrep → diffgrab | Collect RSS feeds, extract articles, build semantic search index, track changes |
 | [watchdeck](https://github.com/QuartzUnit/watchdeck) | diffgrab → markgrab → snapgrab → guard trio | Monitor web pages for changes with visual diffs and safety guards |
 
+### Case Studies
+
+Architecture deep-dives with quantifiable results and honest failure analysis:
+
+| Case Study | Domain | Key Result |
+|-----------|--------|------------|
+| [Fact-Checking Pipeline](https://github.com/ArkNill/case-studies/blob/main/fact-checking-pipeline.md) | NLP / Verification | 83.6% accuracy through 14 iterations, 127K claims |
+| [Autonomous AI Agent](https://github.com/ArkNill/case-studies/blob/main/autonomous-ai-agent.md) | Agent Systems | Zero-framework ReAct + RAG, 1,235 tests, 101s → 3s |
+| [Data Mart Automation](https://github.com/ArkNill/case-studies/blob/main/data-mart-automation.md) | Data Engineering | 47.4M rows, 90% Text2SQL with zero manual config |
+
 ---
 
 ## By the Numbers
