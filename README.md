@@ -92,7 +92,7 @@ The guard libraries (loop detection, degeneration detection, action policies) ca
 | [agent-loop-guard](https://github.com/QuartzUnit/agent-loop-guard) | Agent infinite loop detection | [![PyPI](https://img.shields.io/pypi/v/agent-loop-guard?style=flat-square)](https://pypi.org/project/agent-loop-guard/) | 78 |
 | [agent-action-policy](https://github.com/QuartzUnit/agent-action-policy) | Declarative action policies for AI agents | [![PyPI](https://img.shields.io/pypi/v/agent-action-policy?style=flat-square)](https://pypi.org/project/agent-action-policy/) | 69 |
 
-**959 tests** across 10 packages · All MIT licensed · Korean + English documentation
+**959 tests** across 10 packages · Open-source (MIT / Apache-2.0) · Korean + English documentation
 
 ### Showcase
 
