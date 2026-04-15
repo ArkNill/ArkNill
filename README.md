@@ -10,11 +10,12 @@ Currently building [QuartzUnit](https://github.com/QuartzUnit): composable Pytho
 
 ## Currently Working On
 
+- **[llm-relay](https://github.com/QuartzUnit/llm-relay)** — unified LLM usage management born from investigating Claude Code's [hidden cache bugs and token inflation](https://github.com/ArkNill/claude-code-hidden-problem-analysis). API proxy with full request/response capture, session diagnostics, multi-CLI orchestration (Claude Code / Codex / Gemini), and automated recovery. Built to answer: *where are my tokens actually going?*
 - **Mirror Agent** — local autonomous AI agent with custom ReAct pipeline, RAG (Qdrant + Neo4j), persistent memory, and 2-tier LLM fallback. No framework, no cloud. Runs entirely on-premise.
 - **Forge** — multi-source data refinement into LLM-ready warehouses. Any domain, any source — news, blogs, enterprise back-data, legacy DB migrations. Includes fact-checking at 83.6% production accuracy.
 - **QubicAI** — automated data mart generation + natural language → SQL. Turns Forge warehouses into queryable marts that LLMs can use directly.
 - **QuartzUnit** — personal data asset platform. Consumption/production knowledge archiving + AI labeling + mobile app. Building toward a personal data marketplace.
-- **QuartzUnit OSS** — 10 Python packages on PyPI extracted from the above projects. The composable tool layer that powers the ecosystem.
+- **QuartzUnit OSS** — 12 Python packages on PyPI extracted from the above projects. The composable tool layer that powers the ecosystem.
 
 ---
 
@@ -55,20 +56,20 @@ LLM pipelines that work identically **online and offline** — collection → ex
 
 ## QuartzUnit — LLM-native Tool Ecosystem
 
-Most AI agent frameworks give you an orchestrator but expect you to figure out the I/O yourself. QuartzUnit is the I/O layer — **10 focused tools** that each solve one problem well, designed to be chained together.
+Most AI agent frameworks give you an orchestrator but expect you to figure out the I/O yourself. QuartzUnit is the I/O layer — **12 focused tools** that each solve one problem well, designed to be chained together.
 
 Every tool ships with three interfaces: CLI for scripting, async Python API for integration, and MCP server for AI agent consumption. Zero cloud dependency — everything runs on your machine.
 
 ```
-Collect          Extract          Search           Monitor          Guard
-─────────        ─────────        ─────────        ─────────        ─────────
+Collect          Extract          Search           Monitor          Guard            Relay
+─────────        ─────────        ─────────        ─────────        ─────────        ─────────
 feedkit    ───→  markgrab   ───→  embgrep    ───→  diffgrab         agent-action-policy
-(RSS/Atom)       (HTML/PDF/       (semantic)       (web change      agent-loop-guard
-                  YouTube)                          tracking)       llm-degen-guard
-                 docpick
-                 (OCR→JSON)       browsegrab ───→  snapgrab
-                                  (browser         (screenshot)
-                                   agent)
+(RSS/Atom)       (HTML/PDF/       (semantic)       (web change      agent-loop-guard  llm-relay
+                  YouTube)                          tracking)       llm-degen-guard  (API proxy +
+                 docpick                                                              diagnostics)
+                 (OCR→JSON)       browsegrab ───→  snapgrab                          tokpress
+                                  (browser         (screenshot)                      (token
+                                   agent)                                             compression)
 ```
 
 ### Why I built this
@@ -76,6 +77,8 @@ feedkit    ───→  markgrab   ───→  embgrep    ───→  diffg
 I needed these tools for my own data pipelines — collecting news from 444 RSS feeds, extracting article content for fact-checking, searching across collected documents by meaning, and monitoring pages for changes. Every tool started as a module in a private project, then got extracted into a standalone package when it became useful on its own.
 
 The guard libraries (loop detection, degeneration detection, action policies) came from running autonomous agents that would occasionally get stuck in loops, produce garbage output, or try to access things they shouldn't. Rather than adding ad-hoc checks, I built proper detectors that any agent framework can use.
+
+llm-relay started when I discovered that Claude Code had [undocumented cache bugs causing 10-20x token inflation](https://github.com/ArkNill/claude-code-hidden-problem-analysis) on paid plans. I needed a transparent proxy to capture every API request, measure real token usage, and diagnose session-level anomalies. It grew into a full LLM operations layer — multi-CLI orchestration, automated recovery, and session diagnostics across Claude Code, Codex, and Gemini CLI.
 
 ### Packages
 
@@ -91,8 +94,10 @@ The guard libraries (loop detection, degeneration detection, action policies) ca
 | [llm-degen-guard](https://github.com/QuartzUnit/llm-degen-guard) | LLM output degeneration detector | [![PyPI](https://img.shields.io/pypi/v/llm-degen-guard?style=flat-square)](https://pypi.org/project/llm-degen-guard/) | 55 |
 | [agent-loop-guard](https://github.com/QuartzUnit/agent-loop-guard) | Agent infinite loop detection | [![PyPI](https://img.shields.io/pypi/v/agent-loop-guard?style=flat-square)](https://pypi.org/project/agent-loop-guard/) | 78 |
 | [agent-action-policy](https://github.com/QuartzUnit/agent-action-policy) | Declarative action policies for AI agents | [![PyPI](https://img.shields.io/pypi/v/agent-action-policy?style=flat-square)](https://pypi.org/project/agent-action-policy/) | 69 |
+| [llm-relay](https://github.com/QuartzUnit/llm-relay) | LLM API proxy + session diagnostics + multi-CLI orchestration | [![PyPI](https://img.shields.io/pypi/v/llm-relay?style=flat-square)](https://pypi.org/project/llm-relay/) | 262 |
+| [tokpress](https://github.com/QuartzUnit/tokpress) | Intelligent tool output compression for AI agents | [![PyPI](https://img.shields.io/pypi/v/tokpress?style=flat-square)](https://pypi.org/project/tokpress/) | 87 |
 
-**959 tests** across 10 packages · Open-source (MIT / Apache-2.0) · Korean + English documentation
+**1,308 tests** across 12 packages · Open-source (MIT / Apache-2.0) · Korean + English documentation
 
 ### Showcase
 
@@ -102,6 +107,12 @@ End-to-end examples showing how QuartzUnit packages chain together:
 |---------|----------|-------------|
 | [newswatch](https://github.com/QuartzUnit/newswatch) | feedkit → markgrab → embgrep → diffgrab | Collect RSS feeds, extract articles, build semantic search index, track changes |
 | [watchdeck](https://github.com/QuartzUnit/watchdeck) | diffgrab → markgrab → snapgrab → guard trio | Monitor web pages for changes with visual diffs and safety guards |
+
+### Research
+
+| Report | Domain | Key Finding |
+|--------|--------|-------------|
+| [Claude Code Hidden Problem Analysis](https://github.com/ArkNill/claude-code-hidden-problem-analysis) | AI Tooling / Billing | 11 cache bugs + 5-layer token inflation model, 35K+ proxy-captured requests, cross-validated by independent researchers |
 
 ### Case Studies
 
@@ -120,8 +131,8 @@ Architecture deep-dives with quantifiable results and honest failure analysis:
 | | |
 |---|---|
 | **6** | Database engines tuned in production (PostgreSQL, Oracle, MariaDB, MSSQL, DB2, Netezza) |
-| **10** | Open-source Python packages on PyPI |
-| **959** | Tests across the QuartzUnit ecosystem |
+| **12** | Open-source Python packages on PyPI |
+| **1,308** | Tests across the QuartzUnit ecosystem |
 | **444** | Curated, verified RSS feeds in the feedkit catalog |
 | **800K+** | Quality articles collected across 115 domains |
 | **83.6%** | Fact-checking pipeline effective accuracy (production) |
